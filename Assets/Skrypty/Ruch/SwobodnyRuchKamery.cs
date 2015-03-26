@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-// RUCH KAMERY (MYSZ + WSAD)
+// RUCH KAMERY (MYSZ + WSAD) - do obracania przytrzymac LPM
 
 public class SwobodnyRuchKamery : MonoBehaviour {
 
@@ -17,14 +17,11 @@ public class SwobodnyRuchKamery : MonoBehaviour {
 
 	
 	void Start () {
-		if (GetComponent<Rigidbody>())
-			GetComponent<Rigidbody>().freezeRotation = true;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 
-		// obrot     
+		// obrot (trza przytrzymac przycisk myszy)
 		if (Input.GetMouseButton(0)) 
 		{
 			float rotacjaX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * czuloscMyszyX;
@@ -33,19 +30,11 @@ public class SwobodnyRuchKamery : MonoBehaviour {
 			transform.localEulerAngles = new Vector3(-rotacjaY, rotacjaX, 0.0f);
 		}
 
-		// przod / tyl
-		if (Input.GetAxis("Vertical") != 0.0f)  
+		// przod/tyl i lewo/prawo
+		if ((Input.GetAxis("Vertical") != 0.0f) || (Input.GetAxis("Horizontal") != 0.0f))
 		{
-			float predkosc = Input.GetKey(KeyCode.LeftShift) ? zwiekszonaPredkosc : normalnaPredkosc;
-			Vector3 przesuniecie = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical") * predkosc * Time.deltaTime);
-			gameObject.transform.localPosition += gameObject.transform.localRotation * przesuniecie;
-		}
-		
-		// lewo / prawo
-		if (Input.GetAxis("Horizontal") != 0.0f) 
-		{
-			float predkosc = Input.GetKey(KeyCode.LeftShift) ? zwiekszonaPredkosc : normalnaPredkosc;
-			Vector3 przesuniecie = new Vector3(Input.GetAxis("Horizontal") * predkosc * Time.deltaTime, 0.0f, 0.0f);
+			float predkosc = (Input.GetKey(KeyCode.LeftShift) ? zwiekszonaPredkosc : normalnaPredkosc) * Time.deltaTime;
+			Vector3 przesuniecie = new Vector3(Input.GetAxis("Horizontal") * predkosc, 0.0f, Input.GetAxis("Vertical") * predkosc);
 			gameObject.transform.localPosition += gameObject.transform.localRotation * przesuniecie;
 		}
 
