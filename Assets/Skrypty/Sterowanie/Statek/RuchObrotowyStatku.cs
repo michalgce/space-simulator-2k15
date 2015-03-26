@@ -5,13 +5,24 @@ using System.Collections;
 
 public class RuchObrotowyStatku : MonoBehaviour {
 
-	// Use this for initialization
+	public float czuloscMyszyX = 5.0f;
+	public float czuloscMyszyY = 5.0f;
+	
+	float rotacjaY = 0.0f;
+
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-	
+		
+		if (Input.GetMouseButton(1)) {
+
+			float rotacjaX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * czuloscMyszyX;
+			rotacjaY += Input.GetAxis ("Mouse Y") * czuloscMyszyY;
+			rotacjaY = Mathf.Clamp (rotacjaY, -89.5f, 89.5f);
+			transform.localEulerAngles = new Vector3 (-rotacjaY, rotacjaX, 0.0f);
+
+		}
 	}
 }
