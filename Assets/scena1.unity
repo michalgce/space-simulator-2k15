@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   czyGenerowac: 1
-  maxDistance: 10
+  maxDistance: 100
 --- !u!1 &857945684
 GameObject:
   m_ObjectHideFlags: 0
