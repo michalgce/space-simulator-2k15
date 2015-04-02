@@ -9,23 +9,36 @@ public class RuchObrotowyStatku : MonoBehaviour {
 	public float czuloscMyszyY = 5.0f;
 	public float czuloscMyszyZ = 2.0f;
 
+	private Vector3 rotacjaStartowa;
+
+	void Start() {
+		rotacjaStartowa = transform.localEulerAngles;
+	}
+
 	void Update () {
 		
-		if (!SterowanieOgolne.kameraAktywna) {
+		if (SterowanieOgolne.sterowanieStatkiemAktywne) {
 
-			float axisZ = 0.0f;
+			float rotacjaZ = 0.0f;
 			if (Input.GetKey(KeyCode.Q))
-				axisZ += 1.0f;
+				rotacjaZ += 1.0f;
 			if (Input.GetKey(KeyCode.E))
-				axisZ -= 1.0f;
+				rotacjaZ -= 1.0f;
 
 
 			if (SterowanieOgolne.myszkaAktywna)
-				this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(- Input.GetAxis("Mouse Y") * czuloscMyszyY, Input.GetAxis("Mouse X") * czuloscMyszyX, axisZ * czuloscMyszyZ));
+				this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(- Input.GetAxis("Mouse Y") * czuloscMyszyY, Input.GetAxis("Mouse X") * czuloscMyszyX, rotacjaZ * czuloscMyszyZ));
 			else
-				this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, axisZ * czuloscMyszyZ));
+				this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, rotacjaZ * czuloscMyszyZ));
 
 
+			// RESET ROTACJI
+			if (Input.GetKeyDown(KeyCode.R)) 
+				transform.localEulerAngles = rotacjaStartowa;
+
+			// RESET MOMENTOW
+			if (Input.GetKeyDown(KeyCode.T)) 
+				this.gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3();
 		}
 	}
 }
