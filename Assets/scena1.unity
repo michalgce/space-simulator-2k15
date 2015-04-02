@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   czyGenerowac: 1
-  maxDistance: 10
+  maxDistance: 100
 --- !u!114 &823767546
 MonoBehaviour:
   m_ObjectHideFlags: 0
