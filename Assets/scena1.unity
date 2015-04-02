@@ -428,6 +428,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 823767544}
   - 114: {fileID: 823767545}
+  - 114: {fileID: 823767546}
   m_Layer: 0
   m_Name: Symulator
   m_TagString: Untagged
@@ -462,6 +463,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   czyGenerowac: 1
   maxDistance: 10
+--- !u!114 &823767546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 823767543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec8f59f004557408f4ed9520db0ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &857945684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,10 +1858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spalinySilnikaGlownego: {fileID: 1882696468}
-  x: 0
-  y: 0
-  z: 0
-  q: 0
 --- !u!54 &1986067852
 Rigidbody:
   m_ObjectHideFlags: 0

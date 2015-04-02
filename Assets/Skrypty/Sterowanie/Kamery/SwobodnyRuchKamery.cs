@@ -17,13 +17,16 @@ public class SwobodnyRuchKamery : MonoBehaviour {
 
 	void Update () {
 
-		if ((gameObject.GetComponent<Camera> ().enabled) && (Input.GetMouseButton (0))) {
+		if ((gameObject.GetComponent<Camera> ().enabled) && (SterowanieOgolne.kameraAktywna)) {
 
 			// obrot
-			float rotacjaX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * czuloscMyszyX;
-			rotacjaY += Input.GetAxis ("Mouse Y") * czuloscMyszyY;
-			rotacjaY = Mathf.Clamp (rotacjaY, -89.5f, 89.5f);
-			transform.localEulerAngles = new Vector3 (-rotacjaY, rotacjaX, 0.0f);
+			if (SterowanieOgolne.myszkaAktywna)
+			{
+				float rotacjaX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * czuloscMyszyX;
+				rotacjaY += Input.GetAxis ("Mouse Y") * czuloscMyszyY;
+				rotacjaY = Mathf.Clamp (rotacjaY, -89.5f, 89.5f);
+				transform.localEulerAngles = new Vector3 (-rotacjaY, rotacjaX, 0.0f);
+			}
 		
 
 			// przod/tyl i lewo/prawo
