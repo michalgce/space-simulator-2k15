@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class AsteroidsManager : MonoBehaviour
 {
 	public bool czyGenerowac = false;
-	public float maxDistance = 100;
+	public float maxDistance = 10;
 	private GameObject[] prefabs = new GameObject[3];
 	private GameObject statek;
 	private List<GameObject> asteroids = new List<GameObject>();
@@ -34,7 +34,7 @@ public class AsteroidsManager : MonoBehaviour
 		while (czyGenerowac)
 		{
 			GameObject asteroid = prefabs [Random.Range (0, prefabs.Length)];
-			Vector3 spawnPosition = calculateSpawnPosition();
+			Vector3 spawnPosition = new Vector3 (statekLoc.x+1, statekLoc.y+1, statekLoc.z+1); //TODO: do zrobienia generowanie dookoła? statku
 			Quaternion spawnRotation = Quaternion.identity;
 			GameObject asteroidInstantiated = (GameObject) Instantiate (asteroid, spawnPosition, spawnRotation);
 			asteroids.Add(asteroidInstantiated);
@@ -61,18 +61,6 @@ public class AsteroidsManager : MonoBehaviour
 			}
 			yield return new WaitForSeconds (kasujCo);
 		}
-	}
-
-	private Vector3 calculateSpawnPosition()
-	{
-		float r = 70;
-		float x0 = statekLoc.x;
-		float y0 = statekLoc.y;
-		float z0 = statekLoc.z;
-		float x = Random.Range (x0 - 40, x0 + 40);
-		float y = Random.Range (y0 - 40, y0 + 40);
-		float z = Mathf.Sqrt (Mathf.Pow (r, 2) - Mathf.Pow (x - x0, 2) - Mathf.Pow (y - y0, 2)) + z0;
-		return new Vector3(x, y, z);
 	}
 
 }
