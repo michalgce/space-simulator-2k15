@@ -668,7 +668,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1240166781
+--- !u!4 &1240166781 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_PrefabInternal: {fileID: 1240166780}
@@ -728,6 +728,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1523590850}
   m_RootOrder: 1
+--- !u!1 &1771508211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1771508212}
+  m_Layer: 0
+  m_Name: SpawnPocisku
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771508212
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771508211}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: .0500000007, y: 1.04999995, z: 9.31000042}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 1986067849}
+  m_RootOrder: 5
 --- !u!1 &1882696466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1869,7 @@ GameObject:
   - 114: {fileID: 1986067850}
   - 114: {fileID: 1986067851}
   - 54: {fileID: 1986067852}
+  - 114: {fileID: 1986067853}
   m_Layer: 0
   m_Name: Statek
   m_TagString: Statek
@@ -1864,6 +1892,7 @@ Transform:
   - {fileID: 1240166781}
   - {fileID: 857945685}
   - {fileID: 248049097}
+  - {fileID: 1771508212}
   m_Father: {fileID: 823767544}
   m_RootOrder: 1
 --- !u!114 &1986067850
@@ -1910,6 +1939,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1986067853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986067848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9028baf98d74b819de91c54c0c27e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strzal: {fileID: 120238, guid: 2aedefe8c5227442e836b6f995a04aa6, type: 2}
+  spawnPocisku: {fileID: 1771508212}
+  fireRate: .25
+  destroyAfterSec: 5
 --- !u!1 &2078286435
 GameObject:
   m_ObjectHideFlags: 0
