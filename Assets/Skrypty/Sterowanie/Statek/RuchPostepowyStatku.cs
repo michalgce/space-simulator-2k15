@@ -3,6 +3,8 @@ using System.Collections;
 
 // NAPED POSTEPOWY PRZEDNI I TYLNI (USTAWIANY ZA POMOCA KLAWISZY 1-5) 
 // ORAZ LEWO PRAWO GORA DOL (KLAWISZE WSAD)
+// R - RESET PPOZYCJI
+// T - RESET SIL POSTEPOWYCH
 
 public class RuchPostepowyStatku : MonoBehaviour {
 
@@ -60,7 +62,7 @@ public class RuchPostepowyStatku : MonoBehaviour {
 
 		// dodanie sil
 		if (SterowanieOgolne.sterowanieStatkiemAktywne)
-			this.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), mocSilnika) * Time.deltaTime * mnoznikMocySilnika);
+			this.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(Input.GetAxis ("Horizontal") * 5.0f, Input.GetAxis ("Vertical") * 5.0f, mocSilnika) * Time.deltaTime * mnoznikMocySilnika);
 		else
 			this.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, mocSilnika) * Time.deltaTime * mnoznikMocySilnika);
 

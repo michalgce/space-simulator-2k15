@@ -668,7 +668,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1240166781 stripped
+--- !u!4 &1240166781
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_PrefabInternal: {fileID: 1240166780}
@@ -825,7 +825,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .300000012
+      scalar: .200000003
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1906,9 +1906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c730b6b1b1b665a45a4493c7903d538e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  czuloscMyszyX: 1
-  czuloscMyszyY: 1
-  czuloscMyszyZ: 1
+  czuloscMyszyX: .5
+  czuloscMyszyY: .5
+  czuloscMyszyZ: .100000001
 --- !u!114 &1986067851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mocSilnika: 0
-  mnoznikMocySilnika: 1
+  mnoznikMocySilnika: 3
   spalinySilnikaGlownego1: {fileID: 1882696468}
   spalinySilnikaGlownego2: {fileID: 2078286438}
 --- !u!54 &1986067852
@@ -2036,7 +2036,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .300000012
+      scalar: .200000003
       maxCurve:
         serializedVersion: 2
         m_Curve:
