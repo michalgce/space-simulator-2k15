@@ -6,7 +6,7 @@ public class AsteroidsManager : MonoBehaviour
 {
 	public bool czyGenerowac = false;
 	public float maxDistance = 100;
-	private GameObject[] prefabs = new GameObject[3];
+	private GameObject[] prefabs = new GameObject[2];
 	private GameObject statek;
 	private List<GameObject> asteroids = new List<GameObject>();
 	private Vector3 statekLoc;
@@ -19,7 +19,7 @@ public class AsteroidsManager : MonoBehaviour
 		statekLoc = statek.transform.position;
 		prefabs [0] = (GameObject) Resources.Load("Asteroidy/AsteroidaA");
 		prefabs [1] = (GameObject) Resources.Load("Asteroidy/AsteroidaB");
-		prefabs [2] = (GameObject) Resources.Load("Asteroidy/AsteroidaC");
+		//prefabs [2] = (GameObject) Resources.Load("Asteroidy/AsteroidaC");
 		StartCoroutine (SpawnAsteroids ());
 		StartCoroutine (DestroyAsteroids ());
 	}

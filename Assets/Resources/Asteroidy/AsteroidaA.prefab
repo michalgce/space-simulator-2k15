@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400006}
+  - 114: {fileID: 11413394}
   m_Layer: 0
   m_Name: AsteroidaA
   m_TagString: Enemy
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 5
---- !u!114 &11400006
+--- !u!114 &11413394
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc4b2f4f2c52cc49a954de00d05c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
+  speed: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

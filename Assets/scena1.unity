@@ -754,9 +754,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 823767544}
-  - 114: {fileID: 823767545}
   - 114: {fileID: 823767546}
   - 114: {fileID: 823767547}
+  - 114: {fileID: 823767548}
+  - 114: {fileID: 823767549}
+  - 114: {fileID: 823767545}
   m_Layer: 0
   m_Name: Symulator
   m_TagString: Untagged
@@ -786,10 +788,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 823767543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3286f83cf2e7e5e47b788f8483e10556, type: 3}
+  m_Script: {fileID: 11500000, guid: 9966afbe98ac8ee45a198efdb0bbcec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  czyGenerowac: 1
+  dyski:
+  - {fileID: 1320686595}
   maxDistance: 100
 --- !u!114 &823767546
 MonoBehaviour:
@@ -814,6 +817,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   czyGenerowac: 1
+  maxDistance: 100
+--- !u!114 &823767548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 823767543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3286f83cf2e7e5e47b788f8483e10556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  czyGenerowac: 1
+  maxDistance: 100
+--- !u!114 &823767549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 823767543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ad49815f770c94abdee5e6a7665216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chmury:
+  - {fileID: 2044756931}
+  czyGenerowacAutomatycznie: 0
   maxDistance: 100
 --- !u!1 &857945684
 GameObject:
@@ -1070,6 +1101,50 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_PrefabInternal: {fileID: 1240166780}
+--- !u!1 &1320686594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1320686596}
+  - 114: {fileID: 1320686595}
+  m_Layer: 0
+  m_Name: DyskAsteroidow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1320686595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320686594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9d28be59fe18f48bf2c170d5784dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  srodek: {x: 0, y: 0, z: 0}
+  promienWewnetrzny: 1
+  promienZewnetrzny: 3
+  ilosc: 10
+  szybkosc: .300000012
+--- !u!4 &1320686596
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320686594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .250715971, y: -.639821053, z: 4.94970131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1421510342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1331,7 @@ GameObject:
   - 33: {fileID: 1729841346}
   - 135: {fileID: 1729841345}
   - 23: {fileID: 1729841344}
+  - 114: {fileID: 1729841348}
   m_Layer: 0
   m_Name: Planeta
   m_TagString: Untagged
@@ -1313,11 +1389,26 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1729841343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.599998, y: 1.5, z: 86.1999969}
+  m_LocalPosition: {x: 100.300003, y: 1.5, z: 86.1999969}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1729841348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729841343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da600d57b081ba04d847133f170d9761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promienWewnetrzny: 20
+  promienZewnetrzny: 25
+  ilosc: 10
+  szybkosc: -.5
 --- !u!1 &1771508211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2565,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986067848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 2}
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
   m_Children:
   - {fileID: 1882696469}
@@ -2544,6 +2635,49 @@ MonoBehaviour:
   spawnPocisku: {fileID: 1771508212}
   fireRate: .25
   destroyAfterSec: 5
+--- !u!1 &2044756929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2044756930}
+  - 114: {fileID: 2044756931}
+  m_Layer: 0
+  m_Name: ChmuraAsteroidow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044756930
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044756929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .250715971, y: -.639821053, z: 4.94970131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+--- !u!114 &2044756931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044756929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87552db7d468a34ebd025f6a19ebd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  srodek: {x: 5, y: 0, z: -5}
+  promien: 5
+  ilosc: 10
+  kierunek: {x: -1, y: 0, z: -1}
 --- !u!1 &2078286435
 GameObject:
   m_ObjectHideFlags: 0
