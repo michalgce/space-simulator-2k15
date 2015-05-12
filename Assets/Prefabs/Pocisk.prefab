@@ -11,6 +11,8 @@ GameObject:
   - 54: {fileID: 5418104}
   - 136: {fileID: 13665518}
   - 114: {fileID: 11461146}
+  - 114: {fileID: 11475010}
+  - 114: {fileID: 11450030}
   m_Layer: 0
   m_Name: Pocisk
   m_TagString: Untagged
@@ -106,6 +108,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11450030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bcb51654b654447827fa95cbb0649f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
 --- !u!114 &11461146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +132,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &11475010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53fd7135ec64144b8dc28122e8566b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: a6d58f54ce5934781962a4f887e834f3, type: 2}
 --- !u!136 &13665518
 CapsuleCollider:
   m_ObjectHideFlags: 1

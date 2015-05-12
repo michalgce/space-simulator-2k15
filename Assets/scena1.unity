@@ -1128,9 +1128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9d28be59fe18f48bf2c170d5784dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  srodek: {x: 0, y: 0, z: 0}
+  srodek: {x: 3, y: 3, z: 7}
   promienWewnetrzny: 1
-  promienZewnetrzny: 3
+  promienZewnetrzny: 5
   ilosc: 10
   szybkosc: .300000012
 --- !u!4 &1320686596

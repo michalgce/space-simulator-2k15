@@ -19,7 +19,6 @@ public class AsteroidsManager : MonoBehaviour
 		statekLoc = statek.transform.position;
 		prefabs [0] = (GameObject) Resources.Load("Asteroidy/AsteroidaA");
 		prefabs [1] = (GameObject) Resources.Load("Asteroidy/AsteroidaB");
-		//prefabs [2] = (GameObject) Resources.Load("Asteroidy/AsteroidaC");
 		StartCoroutine (SpawnAsteroids ());
 		StartCoroutine (DestroyAsteroids ());
 	}
@@ -40,6 +39,14 @@ public class AsteroidsManager : MonoBehaviour
 			asteroids.Add(asteroidInstantiated);
 			yield return new WaitForSeconds (generujCo);
 		}
+	}
+
+	public GameObject dajAsteroide(Vector3 position, Quaternion rotation, float scale){
+		GameObject asteroid = prefabs [Random.Range (0, prefabs.Length)];
+		asteroid.transform.localScale = new Vector3(scale, scale, scale);
+		GameObject asteroidInstantiated = (GameObject) Instantiate (asteroid, position, rotation);
+		asteroids.Add(asteroidInstantiated);
+		return asteroidInstantiated;
 	}
 
 	IEnumerator DestroyAsteroids ()
