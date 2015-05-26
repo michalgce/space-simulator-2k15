@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 // NAPED POSTEPOWY PRZEDNI I TYLNI (USTAWIANY ZA POMOCA KLAWISZY 1-5) 
@@ -8,64 +8,53 @@ using System.Collections;
 
 public class RuchPostepowyStatku : MonoBehaviour {
 
+	public float predkoscStatku = 0.0f;
+	public float predkoscStatkuMax = 1.0f;
+	public float mocSilnikaGlownego = 0.0f;
 
-	public float mocSilnika = 0.0f;
+	public float mnoznikSilnikaGlownego = 1.0f;
+	public float mnoznikMocyBocznych = 5.0f;
 
-	public float mnoznikMocySilnika = 0.1f;
-
-	public ParticleSystem spalinySilnikaGlownego1;
-	public ParticleSystem spalinySilnikaGlownego2;
+	public ParticleSystem plomienSilnikaGlownego;
+	public ParticleSystem spalinySilnikaGlownego;
 
 	private Vector3 pozycjaStartowa;
 
+	private Rigidbody statekRigidbody;
+
 	void Start () {
 		pozycjaStartowa = transform.localPosition;
+		statekRigidbody = this.gameObject.GetComponent<Rigidbody> ();
 	}
 	
 	void Update () {
 
 
-		if (Input.anyKeyDown) {
-			if (Input.GetKeyDown (KeyCode.Alpha0))
-				mocSilnika = 0.0f;
-			if (Input.GetKeyDown (KeyCode.Alpha1))
-				mocSilnika = 0.2f;
-			if (Input.GetKeyDown (KeyCode.Alpha2))
-				mocSilnika = 0.4f;
-			if (Input.GetKeyDown (KeyCode.Alpha3))
-				mocSilnika = 0.6f;
-			if (Input.GetKeyDown (KeyCode.Alpha4))
-				mocSilnika = 0.8f;
-			if (Input.GetKeyDown (KeyCode.Alpha5))
-				mocSilnika = 1.0f;
-
-			obsluzSpaliny();
-		}
-
-
-		if (SterowanieOgolne.sterowanieStatkiemAktywne && Input.mouseScrollDelta.y != 0.0f) {
-
-			// USTAWIENIE SILY WZDLOZ OSI Z
-
-			// 0.1f - graniczna pozycja mocy silnika - wlacz lub wylacz silnik
-			if ((mocSilnika) < 0.01f && (Input.mouseScrollDelta.y > 0.0f))
-					mocSilnika = 0.1f;
-			else 
-				mocSilnika += 0.02f * Input.mouseScrollDelta.y;
-
-			mocSilnika = (mocSilnika > 1.0f ? 1.0f : mocSilnika);
-			mocSilnika = (mocSilnika < 0.099f ? 0.0f : mocSilnika);
-
-			obsluzSpaliny();
-		}
+		SprawdzenieZmianyMocySilnikaGlownego();
 
 
 		// dodanie sil
 		if (SterowanieOgolne.sterowanieStatkiemAktywne)
-			this.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(Input.GetAxis ("Horizontal") * 5.0f, Input.GetAxis ("Vertical") * 5.0f, mocSilnika) * Time.deltaTime * mnoznikMocySilnika);
+			statekRigidbody.AddRelativeForce(new Vector3(Input.GetAxis ("Horizontal") * mnoznikMocyBocznych, Input.GetAxis ("Vertical") * mnoznikMocyBocznych, mocSilnikaGlownego * mnoznikSilnikaGlownego) * Time.deltaTime);
 		else
-			this.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, mocSilnika) * Time.deltaTime * mnoznikMocySilnika);
+			statekRigidbody.AddRelativeForce(new Vector3(0.0f, 0.0f, mocSilnikaGlownego * mnoznikSilnikaGlownego) * Time.deltaTime);
 
+		// spowalnianie statku
+		float nowaPredkoscStatku = statekRigidbody.velocity.magnitude;
+		float przyspieszenieStatku = nowaPredkoscStatku - predkoscStatku;
+		przyspieszenieStatku = (przyspieszenieStatku > 0.0f ? przyspieszenieStatku : 0.0f);
+		float wspolczynnikSpowolnienia = nowaPredkoscStatku / predkoscStatkuMax;
+		statekRigidbody.velocity = statekRigidbody.velocity.normalized * (statekRigidbody.velocity.magnitude - przyspieszenieStatku * wspolczynnikSpowolnienia);
+
+		predkoscStatku = statekRigidbody.velocity.magnitude;
+
+		/*
+		if (predkoscStatku > predkoscSwiatla) {
+			statekRigidbody.velocity = statekRigidbody.velocity.normalized * predkoscSwiatla;
+			//statekRigidbody.velocity *= predkoscStatkuMax;
+			predkoscStatku = statekRigidbody.velocity.magnitude;
+		}
+*/
 
 		// RESETOWANIE
 		if (SterowanieOgolne.sterowanieStatkiemAktywne) {
@@ -81,15 +70,65 @@ public class RuchPostepowyStatku : MonoBehaviour {
 
 	}
 
-	void obsluzSpaliny() {
-
-		spalinySilnikaGlownego1.transform.localPosition = new Vector3(spalinySilnikaGlownego1.transform.localPosition.x, spalinySilnikaGlownego1.transform.localPosition.y, -(6.0f + mocSilnika * 0.5f));
-		spalinySilnikaGlownego1.startSpeed =  mocSilnika * 2 - 0.2f;
-		spalinySilnikaGlownego1.startSize = (mocSilnika > 0.05f ? mocSilnika * 0.5f + 0.1f : 0.0f);
+	void SprawdzenieZmianyMocySilnikaGlownego() {
+		if (Input.anyKeyDown) {
+			if (Input.GetKeyDown (KeyCode.Alpha9))
+				mocSilnikaGlownego = -0.5f;
+			if (Input.GetKeyDown (KeyCode.Alpha0))
+				mocSilnikaGlownego = 0.0f;
+			if (Input.GetKeyDown (KeyCode.Alpha1))
+				mocSilnikaGlownego = 0.2f;
+			if (Input.GetKeyDown (KeyCode.Alpha2))
+				mocSilnikaGlownego = 0.4f;
+			if (Input.GetKeyDown (KeyCode.Alpha3))
+				mocSilnikaGlownego = 0.6f;
+			if (Input.GetKeyDown (KeyCode.Alpha4))
+				mocSilnikaGlownego = 0.8f;
+			if (Input.GetKeyDown (KeyCode.Alpha5))
+				mocSilnikaGlownego = 1.0f;
+			
+			ObsluzSpaliny();
+		}
 		
-		spalinySilnikaGlownego2.transform.localPosition = new Vector3(spalinySilnikaGlownego2.transform.localPosition.x, spalinySilnikaGlownego2.transform.localPosition.y, -(6.0f + mocSilnika * 0.5f));
-		spalinySilnikaGlownego2.startSpeed =  mocSilnika * 2 - 0.2f;
-		spalinySilnikaGlownego2.startSize = (mocSilnika > 0.05f ? mocSilnika * 0.5f + 0.1f : 0.0f);
-
+		
+		if (SterowanieOgolne.sterowanieStatkiemAktywne && Input.mouseScrollDelta.y != 0.0f) {
+			
+			// USTAWIENIE SILY WZDLOZ OSI Z
+			
+			// 0.1f - graniczna pozycja mocy silnika - wlacz lub wylacz silnik
+			if ((mocSilnikaGlownego) < 0.01f && (Input.mouseScrollDelta.y > 0.0f))
+				mocSilnikaGlownego = 0.1f;
+			else 
+				mocSilnikaGlownego += 0.02f * Input.mouseScrollDelta.y;
+			
+			mocSilnikaGlownego = (mocSilnikaGlownego > 1.0f ? 1.0f : mocSilnikaGlownego);
+			mocSilnikaGlownego = (mocSilnikaGlownego < 0.099f ? 0.0f : mocSilnikaGlownego);
+			
+			ObsluzSpaliny();
+		}
 	}
+
+	void ObsluzSpaliny() {
+
+
+		if (mocSilnikaGlownego > 0.01f) 
+		{
+
+			plomienSilnikaGlownego.transform.localPosition = new Vector3 (plomienSilnikaGlownego.transform.localPosition.x, plomienSilnikaGlownego.transform.localPosition.y, -(mocSilnikaGlownego * 0.4f + 6.1f));
+			plomienSilnikaGlownego.startSpeed = mocSilnikaGlownego * 5 - 1;
+			plomienSilnikaGlownego.startSize = mocSilnikaGlownego * 0.5f + 0.1f;
+			plomienSilnikaGlownego.emissionRate = 100.0f;
+
+			spalinySilnikaGlownego.transform.localPosition = new Vector3 (spalinySilnikaGlownego.transform.localPosition.x, spalinySilnikaGlownego.transform.localPosition.y, -(mocSilnikaGlownego * 7.5f + 6.5f));
+			spalinySilnikaGlownego.startSpeed = mocSilnikaGlownego * 2;
+			spalinySilnikaGlownego.startSize = mocSilnikaGlownego * 0.25f + 0.05f;
+			spalinySilnikaGlownego.emissionRate = mocSilnikaGlownego * 110.0f - 10.0f;
+		} 
+		else 
+		{
+			plomienSilnikaGlownego.emissionRate = 0.0f;
+			spalinySilnikaGlownego.emissionRate = 0.0f;
+		}
+	}
+	
 }

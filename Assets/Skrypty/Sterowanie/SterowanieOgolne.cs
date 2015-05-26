@@ -22,9 +22,9 @@ public class SterowanieOgolne : MonoBehaviour {
 		}
 
 		// PRZELACZENIE AKTYWNOSCI MYSZKI
-		if (Input.GetKeyDown (KeyCode.M) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) {
+		if (Input.GetKeyUp (KeyCode.M) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(1)) {
 			myszkaAktywna = !myszkaAktywna;
-			//Cursor.visible = !Cursor.visible;
+			Cursor.visible = !Cursor.visible;
 		}
 
 	}

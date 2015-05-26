@@ -346,8 +346,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205090807}
-  m_LocalRotation: {x: .0450714082, y: .944853783, z: -.288965195, w: .147373781}
-  m_LocalPosition: {x: -1.46000004, y: 4.42000008, z: 9.47999954}
+  m_LocalRotation: {x: .29728359, y: -.385956198, z: .296421081, w: .821458995}
+  m_LocalPosition: {x: 5.53000021, y: 6.9000001, z: -6.63000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 654666865}
@@ -873,7 +873,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857945684}
   m_LocalRotation: {x: .335388452, y: -.418400317, z: .0558174141, w: .842223406}
-  m_LocalPosition: {x: 5.59000015, y: 6.86999989, z: -9.85999966}
+  m_LocalPosition: {x: 28.3999996, y: 35.9000015, z: -40.2999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986067849}
@@ -1097,7 +1097,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1240166781 stripped
+--- !u!4 &1240166781
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_PrefabInternal: {fileID: 1240166780}
@@ -1447,7 +1447,7 @@ GameObject:
   - 198: {fileID: 1882696468}
   - 199: {fileID: 1882696467}
   m_Layer: 0
-  m_Name: SpalinySilnikaGlownego1
+  m_Name: PlomienSilnikaGlownego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,11 +1502,11 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 0
+  moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .200000003
+      scalar: .100000001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1521,13 +1521,13 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666627
+          value: .799999952
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 0
+      minMaxState: 3
     startSpeed:
       scalar: 0
       maxCurve:
@@ -1718,7 +1718,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -1737,7 +1737,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2534,7 +2534,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882696466}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: .300000012, y: 2.4000001, z: -6}
+  m_LocalPosition: {x: 0, y: 2.29999995, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986067849}
@@ -2587,9 +2587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c730b6b1b1b665a45a4493c7903d538e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  czuloscMyszyX: .5
-  czuloscMyszyY: .5
-  czuloscMyszyZ: .100000001
+  czuloscMyszyX: 1
+  czuloscMyszyY: 1
+  czuloscMyszyZ: 1
 --- !u!114 &1986067851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2601,10 +2601,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6804e42c7240b4ca77af2bb041b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mocSilnika: 0
-  mnoznikMocySilnika: 3
-  spalinySilnikaGlownego1: {fileID: 1882696468}
-  spalinySilnikaGlownego2: {fileID: 2078286438}
+  predkoscStatku: 0
+  predkoscStatkuMax: 5
+  mocSilnikaGlownego: 0
+  mnoznikSilnikaGlownego: 10
+  mnoznikMocyBocznych: 5
+  plomienSilnikaGlownego: {fileID: 1882696468}
+  spalinySilnikaGlownego: {fileID: 2078286438}
 --- !u!54 &1986067852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2689,7 +2692,7 @@ GameObject:
   - 198: {fileID: 2078286438}
   - 199: {fileID: 2078286437}
   m_Layer: 0
-  m_Name: SpalinySilnikaGlownego2
+  m_Name: SpalinySilnikaGlownego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2702,7 +2705,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2078286435}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: -.300000012, y: 2.4000001, z: -6}
+  m_LocalPosition: {x: -0, y: 2.29999995, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986067849}
@@ -2760,7 +2763,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .200000003
+      scalar: 12
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2775,13 +2778,13 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .666666627
+          value: .666666687
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 0
+      minMaxState: 3
     startSpeed:
       scalar: 0
       maxCurve:
@@ -2899,10 +2902,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 4292950092
+        rgba: 4294901927
       maxColor:
         serializedVersion: 2
-        rgba: 4294106583
+        rgba: 4278190335
       minMaxState: 2
     startSize:
       scalar: 0
@@ -2972,13 +2975,13 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 6
-    radius: 1
-    angle: 25
+    type: 4
+    radius: 3
+    angle: 5
     length: 5
     boxX: .5
     boxY: .5
@@ -2991,7 +2994,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3039,15 +3042,20 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: 0
-          value: .516129017
-          inSlope: 3.16490388
-          outSlope: 3.16490388
+        - time: .00304878037
+          value: .0810811892
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: .493902415
+          value: .932432473
+          inSlope: -.271373987
+          outSlope: -.271373987
           tangentMode: 0
         - time: 1
-          value: .298507392
-          inSlope: -2.7903142
-          outSlope: -2.7903142
+          value: .0405406654
+          inSlope: -7.05905867
+          outSlope: -7.05905867
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
