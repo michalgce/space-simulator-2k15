@@ -33,6 +33,8 @@ public class RuchObrotowyStatku : MonoBehaviour {
 			else
 				this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, rotacjaZ));
 
+			//this.gameObject.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(), 
+
 
 			// RESET ROTACJI
 			if (Input.GetKeyDown(KeyCode.R)) 

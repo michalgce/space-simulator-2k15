@@ -18,6 +18,9 @@ public class RuchPostepowyStatku : MonoBehaviour {
 	public ParticleSystem plomienSilnikaGlownego;
 	public ParticleSystem spalinySilnikaGlownego;
 
+	public GameObject pasekPaliwa;
+	private ObslugaPaska obslugaPaska;
+
 	private Vector3 pozycjaStartowa;
 
 	private Rigidbody statekRigidbody;
@@ -25,6 +28,7 @@ public class RuchPostepowyStatku : MonoBehaviour {
 	void Start () {
 		pozycjaStartowa = transform.localPosition;
 		statekRigidbody = this.gameObject.GetComponent<Rigidbody> ();
+		obslugaPaska = pasekPaliwa.GetComponent<ObslugaPaska> ();
 	}
 	
 	void Update () {
@@ -34,10 +38,19 @@ public class RuchPostepowyStatku : MonoBehaviour {
 
 
 		// dodanie sil
+		Vector3 nowaSila;
 		if (SterowanieOgolne.sterowanieStatkiemAktywne)
-			statekRigidbody.AddRelativeForce(new Vector3(Input.GetAxis ("Horizontal") * mnoznikMocyBocznych, Input.GetAxis ("Vertical") * mnoznikMocyBocznych, mocSilnikaGlownego * mnoznikSilnikaGlownego) * Time.deltaTime);
+			nowaSila = new Vector3(Input.GetAxis ("Horizontal") * mnoznikMocyBocznych, Input.GetAxis ("Vertical") * mnoznikMocyBocznych, mocSilnikaGlownego * mnoznikSilnikaGlownego);
 		else
-			statekRigidbody.AddRelativeForce(new Vector3(0.0f, 0.0f, mocSilnikaGlownego * mnoznikSilnikaGlownego) * Time.deltaTime);
+			nowaSila = new Vector3(0.0f, 0.0f, mocSilnikaGlownego * mnoznikSilnikaGlownego);
+
+		nowaSila *= Time.deltaTime;
+		if (obslugaPaska.ZmienStanPaska (nowaSila.magnitude) == false)
+			statekRigidbody.AddRelativeForce (nowaSila);
+		else {
+			mocSilnikaGlownego = 0.0f;
+			ObsluzSpaliny();
+		}
 
 		// spowalnianie statku
 		float nowaPredkoscStatku = statekRigidbody.velocity.magnitude;
