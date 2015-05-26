@@ -121,7 +121,7 @@ public class RuchPostepowyStatku : MonoBehaviour {
 
 			spalinySilnikaGlownego.transform.localPosition = new Vector3 (spalinySilnikaGlownego.transform.localPosition.x, spalinySilnikaGlownego.transform.localPosition.y, -(mocSilnikaGlownego * 7.5f + 6.5f));
 			spalinySilnikaGlownego.startSpeed = mocSilnikaGlownego * 2;
-			spalinySilnikaGlownego.startSize = mocSilnikaGlownego * 0.25f + 0.05f;
+			spalinySilnikaGlownego.startSize = mocSilnikaGlownego * 0.15f + 0.1f;
 			spalinySilnikaGlownego.emissionRate = mocSilnikaGlownego * 110.0f - 10.0f;
 		} 
 		else 
