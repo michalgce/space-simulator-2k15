@@ -23,8 +23,10 @@ public class ObslugaPaskaMocySilnika : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//pasekPrzewijalny.position = new Vector3 (pozycjaStartowaX - (1.0f - stanPaska) * szerokoscPaska, pozycjaY, 0.0f);
-		pasekPrzewijalny.position = new Vector3 (pozycjaX, pozycjaStartowaY + (ruchPostepowyStatku.mocSilnikaGlownego) * dlugoscPaska, 0.0f);
+		if (ruchPostepowyStatku.mocSilnikaGlownego <= 0.0f)
+			pasekPrzewijalny.position = new Vector3 (pozycjaX, pozycjaStartowaY, 0.0f);
+		else
+			pasekPrzewijalny.position = new Vector3 (pozycjaX, pozycjaStartowaY + (ruchPostepowyStatku.mocSilnikaGlownego) * dlugoscPaska, 0.0f);
 
 	}
 }

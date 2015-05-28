@@ -8,8 +8,8 @@ public class SterowanieOgolne : MonoBehaviour {
 	public static bool myszkaAktywna;
 	
 	void Start () {
-		sterowanieKameraAktywne = true;
-		sterowanieStatkiemAktywne = false;
+		sterowanieKameraAktywne = false;
+		sterowanieStatkiemAktywne = true;
 		myszkaAktywna = false;
 	}
 
