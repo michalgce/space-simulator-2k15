@@ -26,6 +26,6 @@ public class GrawitacjaPlanet : MonoBehaviour {
 			statek.GetComponent<Rigidbody>().AddForce(wektor.normalized * silaPrzyciagania);
 			text += ">" + planeta.name + ": " + silaPrzyciagania + ";  ";
 		}
-		Debug.Log (text);
+		//Debug.Log (text);
 	}
 }
