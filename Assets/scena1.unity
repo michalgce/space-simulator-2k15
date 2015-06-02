@@ -2722,7 +2722,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1320686594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .250715971, y: -.639821053, z: 4.94970131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4726,6 +4726,7 @@ GameObject:
   - 114: {fileID: 1986067853}
   - 136: {fileID: 1986067854}
   - 65: {fileID: 1986067855}
+  - 114: {fileID: 1986067856}
   m_Layer: 0
   m_Name: Statek
   m_TagString: Statek
@@ -4843,6 +4844,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.78999996, y: 2.32999992, z: 15.9799995}
   m_Center: {x: 0, y: .239999995, z: 1.39999998}
+--- !u!114 &1986067856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986067848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd73d385da1f840b0da2c97439f6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: a6d58f54ce5934781962a4f887e834f3, type: 2}
+  pasekZdrowia: {fileID: 495551158}
 --- !u!1 &2044756929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,7 +4880,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2044756929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .250715971, y: -.639821053, z: 4.94970131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4885,7 +4899,7 @@ MonoBehaviour:
   srodek: {x: 5, y: 0, z: 5}
   promien: 50
   ilosc: 10
-  kierunek: {x: -1, y: 0, z: -1}
+  kierunek: {x: 0, y: 0, z: 0}
 --- !u!1 &2078286435
 GameObject:
   m_ObjectHideFlags: 0

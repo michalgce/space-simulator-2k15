@@ -1,26 +1,31 @@
 using UnityEngine;
 using System.Collections;
 
-public class AsteroidsDestroyer : MonoBehaviour
+public class PlaneColision : MonoBehaviour
 {
 	public GameObject explosion;
+	private int dozwolonaIloscKolizji = 3;
+	public GameObject pasekZdrowia;
+	private ObslugaPaska obslugaPaskaAmunicji;
+	private float odjacZdrowiaZaKolizje;
 
 	void Start ()
 	{
+		obslugaPaskaAmunicji = pasekZdrowia.GetComponent<ObslugaPaska> ();
+		odjacZdrowiaZaKolizje = 1.0f / dozwolonaIloscKolizji;
 	}
-
 
 	void OnTriggerEnter (Collider other)
 	{
-		Vector3 position = transform.position;
-		Quaternion rotation = transform.rotation;
-		float scale = gameObject.transform.localScale.x;
-		if (other.name.Contains("Pocisk") || other.name.Contains("Asteroid")){
+		if (other.name.Contains("Asteroid")){
+			Vector3 position = other.transform.position;
+			Quaternion rotation = other.transform.rotation;
+			float scale = other.transform.localScale.x;
 			if (explosion != null)
 			{
 				Instantiate(explosion, position, rotation);
 			}
-			Destroy (gameObject);
+			Destroy (other);
 			// mniejsze tylko niszczymy
 			if(scale > 0.3){
 				int ile = howManyNewAsteroids();
@@ -32,13 +37,17 @@ public class AsteroidsDestroyer : MonoBehaviour
 					asteroidsManager.dajAsteroide(newPos, rotation, newScale);
 				}
 			}
-		} else if(other.name.Contains("Planeta")){
-			// na planecie tylko niszczymy
-			if (explosion != null)
-			{
-				Instantiate(explosion, position, rotation);
+			Debug.Log(dozwolonaIloscKolizji + " " + odjacZdrowiaZaKolizje);
+			dozwolonaIloscKolizji--;
+			obslugaPaskaAmunicji.ZmienStanPaska(odjacZdrowiaZaKolizje);
+			if(dozwolonaIloscKolizji == 0){
+				if (explosion != null)
+				{
+					Instantiate(explosion, position, rotation);
+				}
+				Destroy (gameObject);
+
 			}
-			Destroy (gameObject);
 		}
 	}
 
