@@ -8,9 +8,12 @@ public class PlaneColision : MonoBehaviour
 	public GameObject pasekZdrowia;
 	private ObslugaPaska obslugaPaskaAmunicji;
 	private float odjacZdrowiaZaKolizje;
+	public GameObject symulator;
+	private GameController gameController;
 
 	void Start ()
 	{
+		gameController = symulator.GetComponent<GameController> ();
 		obslugaPaskaAmunicji = pasekZdrowia.GetComponent<ObslugaPaska> ();
 		odjacZdrowiaZaKolizje = 1.0f / dozwolonaIloscKolizji;
 	}
@@ -25,7 +28,7 @@ public class PlaneColision : MonoBehaviour
 			{
 				Instantiate(explosion, position, rotation);
 			}
-			Destroy (other);
+			Destroy (other.gameObject);
 			// mniejsze tylko niszczymy
 			if(scale > 0.3){
 				int ile = howManyNewAsteroids();
@@ -37,7 +40,6 @@ public class PlaneColision : MonoBehaviour
 					asteroidsManager.dajAsteroide(newPos, rotation, newScale);
 				}
 			}
-			Debug.Log(dozwolonaIloscKolizji + " " + odjacZdrowiaZaKolizje);
 			dozwolonaIloscKolizji--;
 			obslugaPaskaAmunicji.ZmienStanPaska(odjacZdrowiaZaKolizje);
 			if(dozwolonaIloscKolizji == 0){
@@ -45,8 +47,8 @@ public class PlaneColision : MonoBehaviour
 				{
 					Instantiate(explosion, position, rotation);
 				}
-				Destroy (gameObject);
-
+				//Destroy (gameObject);
+				gameController.GameOver();
 			}
 		}
 	}
