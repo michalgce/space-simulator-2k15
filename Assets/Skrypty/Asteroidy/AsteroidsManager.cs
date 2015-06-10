@@ -56,9 +56,11 @@ public class AsteroidsManager : MonoBehaviour
 			List<GameObject> asteroidsToDestroy = new List<GameObject>();
 			foreach (GameObject go in asteroids) 
 			{
-				float distance = Vector3.Distance(statekLoc, go.transform.position);
-				if(distance > maxDistance){
-					asteroidsToDestroy.Add(go);
+				if(go != null){
+					float distance = Vector3.Distance(statekLoc, go.transform.position);
+					if(distance > maxDistance){
+						asteroidsToDestroy.Add(go);
+					}
 				}
 			}
 			foreach (GameObject go in asteroidsToDestroy) 
