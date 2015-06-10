@@ -625,7 +625,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 180275348}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &194834961 stripped
+--- !u!1 &194834961
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 14660dcee7587014baeabde7835f04f4, type: 3}
   m_PrefabInternal: {fileID: 895157026}
@@ -2690,7 +2690,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1240166781 stripped
+--- !u!4 &1240166781
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4fea6053a1424d44daf193f09be2d491, type: 3}
   m_PrefabInternal: {fileID: 1240166780}
@@ -3328,9 +3328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promienWewnetrzny: 20
-  promienZewnetrzny: 25
-  ilosc: 10
-  szybkosc: -.5
+  promienZewnetrzny: 50
+  ilosc: 20
+  szybkosc: 1
 --- !u!1 &1751188871
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,7 +4910,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967016455}
---- !u!4 &1968501372 stripped
+--- !u!4 &1968501372
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 14660dcee7587014baeabde7835f04f4, type: 3}
   m_PrefabInternal: {fileID: 895157026}
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   srodek: {x: 5, y: 0, z: 5}
   promien: 50
   ilosc: 10
-  kierunek: {x: 0, y: 0, z: 0}
+  kierunek: {x: 3, y: 0, z: 0}
 --- !u!1 &2078286435
 GameObject:
   m_ObjectHideFlags: 0
